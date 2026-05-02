@@ -24,6 +24,14 @@ chmod +x ./gradlew
 ./gradlew bootRun
 ```
 
+If env variable was not set earlier
+```
+./gradlew --stop
+export GOOGLE_APPLICATION_CREDENTIALS="/usr/local/google/home/pwujczyk/github/Home.Configuration/PTProjectsWeb.Firebase.ServiceAccount.json"
+./gradlew bootRun
+
+```
+
 
 ## Graphql
 Add depdencies in build.gradle
