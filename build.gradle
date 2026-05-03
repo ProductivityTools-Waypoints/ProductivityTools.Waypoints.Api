@@ -24,7 +24,7 @@ ext {
 
 dependencies {
 	implementation 'com.google.cloud:spring-cloud-gcp-starter'
-	implementation 'com.google.cloud:spring-cloud-gcp-starter-data-firestore'
+	// implementation 'com.google.cloud:spring-cloud-gcp-starter-data-firestore'
 	implementation 'org.springframework.boot:spring-boot-starter-graphql'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
