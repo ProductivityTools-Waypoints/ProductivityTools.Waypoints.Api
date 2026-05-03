@@ -21,7 +21,7 @@ steps:
       - '--memory'
       - '1Gi'
       - '--set-env-vars'
-      - 'SERVER_PORT=8080'
+      - 'SERVER_PORT=8080,GOOGLE_CLOUD_PROJECT=$PROJECT_ID'
       - '--allow-unauthenticated'
 images:
   - 'us-central1-docker.pkg.dev/$PROJECT_ID/waypoints-repo/api:$COMMIT_SHA'
