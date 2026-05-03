@@ -4,20 +4,15 @@
 
 ![spring-intialize](./images/spring-intialize.png)
 
-Edit the ```pom.xml``` and add:
+Edit the `build.gradle` and add:
 
-```
-<dependency>
-    <groupId>com.google.cloud</groupId>
-    <artifactId>spring-cloud-gcp-starter-data-firestore</artifactId>
-</dependency>
+```gradle
+implementation 'com.google.cloud:spring-cloud-gcp-starter-data-firestore'
 ```
 
 ## Run project
 ```
-$env:JAVA_HOME="c:\Program Files\Java\jdk-24\"
-.\gradlew.bat build 
-.\gradlew.bat bootrun
+
 ```
 
 ## Graphql
@@ -81,4 +76,20 @@ http://localhost:8080/graphiql
 query {
   helloQuery
 }
+
+mutation {
+  Hello(name: "Tomek")
+}
+```
+### Deployment 
+
+```
+gcloud artifacts repositories create waypoints-repo --repository-format=docker --location=us-central1 --description="Docker repository for Waypoints API"
+```
+
+
+```
+gcloud builds submit --tag us-central1-docker.pkg.dev/ptprojectsweb/waypoints-repo/api .
+
+gcloud run deploy waypoints-api --image us-central1-docker.pkg.dev/ptprojectsweb/waypoints-repo/api --platform managed --region us-central1 --allow-unauthenticated
 ```
