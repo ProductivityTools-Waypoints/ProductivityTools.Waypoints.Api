@@ -29,7 +29,7 @@ spring.graphql.graphiql.enabled=true
 ## Basics
 ### Add home controller
 ```
-package top.productivitytools.PdfTools.api.controllers;
+package top.productivitytools.waypoint.api.controllers;
 
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -91,5 +91,10 @@ gcloud artifacts repositories create waypoints-repo --repository-format=docker -
 ```
 gcloud builds submit --tag us-central1-docker.pkg.dev/ptprojectsweb/waypoints-repo/api .
 
-gcloud run deploy waypoints-api --image us-central1-docker.pkg.dev/ptprojectsweb/waypoints-repo/api --platform managed --region us-central1 --allow-unauthenticated
+gcloud run deploy pt-waypoints-api --image us-central1-docker.pkg.dev/ptprojectsweb/waypoints-repo/api --platform managed --region us-central1 --allow-unauthenticated
+```
+delete
+```
+gcloud run services delete waypoints-api --region us-central1
+
 ```
