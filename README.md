@@ -84,6 +84,10 @@ mutation {
 ### Deployment 
 
 ```
+gcloud builds submit .
+```
+
+```
 gcloud artifacts repositories create waypoints-repo --repository-format=docker --location=us-central1 --description="Docker repository for Waypoints API"
 ```
 
