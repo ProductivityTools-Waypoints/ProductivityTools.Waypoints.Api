@@ -78,7 +78,7 @@ query {
 }
 
 mutation {
-  Hello(name: "Tomek")
+  Hello(name: "Pawel")
 }
 ```
 ### Deployment 
