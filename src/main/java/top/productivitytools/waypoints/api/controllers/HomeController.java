@@ -17,7 +17,7 @@ public class HomeController {
 
     @MutationMapping(name="Hello")
     public String Hello(@Argument("name") String name) {
-        var response = "Hello " + name;
+        var response = "Hello mister" + name;
         return response;
     }
 }
