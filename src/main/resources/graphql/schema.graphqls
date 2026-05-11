@@ -1,5 +1,6 @@
 type Mutation{
     Hello(name: String!):String
+    AddPath(name: String!):String
 }
 
 type Query {
