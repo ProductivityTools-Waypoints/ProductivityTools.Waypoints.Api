@@ -12,7 +12,8 @@ implementation 'com.google.cloud:spring-cloud-gcp-starter-data-firestore'
 
 ## Run project
 ```
-
+$env:JAVA_HOME="c:\Program Files\Java\jdk-24\"
+.\gradlew.bat bootrun
 ```
 
 ## Graphql
