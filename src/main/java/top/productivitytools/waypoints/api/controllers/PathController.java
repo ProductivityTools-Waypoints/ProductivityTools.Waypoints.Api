@@ -17,9 +17,10 @@ public class PathController {
     @MutationMapping
     public String AddPath(@Argument("name") String name) {
         Path path = new Path();
+        path.setId("a4-north");
         path.setName(name);
         this.firestoreTemplate.save(path).block();
         return "Path " + name + " saved to Firestore";
     }
-}
 
+}
