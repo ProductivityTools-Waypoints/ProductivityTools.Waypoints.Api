@@ -6,11 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Document(collectionName = "paths")
+@Document(collectionName = "routes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Path {
+public class Route {
     @DocumentId
     private String id;
     private String name;
