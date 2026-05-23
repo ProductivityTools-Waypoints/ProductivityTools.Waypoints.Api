@@ -1,8 +1,16 @@
 type Mutation{
     Hello(name: String!):String
     AddRoute(name: String!):String
+ 
+
 }
 
 type Query {
     helloQuery: String
+    GetRoutes:[Route]
+}
+
+type Route{
+    id: ID!
+    name :String
 }
