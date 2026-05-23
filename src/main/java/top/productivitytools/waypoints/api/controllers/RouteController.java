@@ -12,7 +12,7 @@ import top.productivitytools.waypoints.api.models.Route;
 import java.util.List;
 
 import org.springframework.graphql.data.method.annotation.QueryMapping;
-
+import java.util.ArrayList;
 
 @Controller
 @RequiredArgsConstructor
@@ -29,8 +29,9 @@ public class RouteController {
     }
 
     @QueryMapping   
-    public List<Route> GetRoutes() {
-        return this.firestoreTemplate.findAll(Route.class).collectList().block();
+    public List<Route> getRoutes() {
+        return new ArrayList<Route>() {{ add(new Route("1", "Route 1")); add(new Route("2", "Route 2")); }};
+        //return this.firestoreTemplate.findAll(Route.class).collectList().block();
     }
 
 }
