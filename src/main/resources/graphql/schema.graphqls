@@ -9,5 +9,6 @@ type Query {
 }
 
 type Route{
-    id: ID!
+    id: ID!,
+    name: String
 }

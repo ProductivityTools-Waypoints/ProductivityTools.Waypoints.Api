@@ -30,8 +30,9 @@ public class RouteController {
 
     @QueryMapping   
     public List<Route> getRoutes() {
-        return new ArrayList<Route>() {{ add(new Route("1", "Route 1")); add(new Route("2", "Route 2")); }};
-        //return this.firestoreTemplate.findAll(Route.class).collectList().block();
+        //return new ArrayList<Route>() {{ add(new Route("1", "Route 1")); add(new Route("2", "Route 2")); }};
+        List<Route> routes = this.firestoreTemplate.findAll(Route.class).collectList().block();
+        return routes;
     }
 
 }
