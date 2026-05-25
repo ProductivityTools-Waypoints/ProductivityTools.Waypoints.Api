@@ -13,6 +13,7 @@ import java.util.List;
 
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import java.util.ArrayList;
+import reactor.core.publisher.Mono;
 
 @Controller
 @RequiredArgsConstructor
@@ -37,7 +38,7 @@ public class RouteController {
 
     @QueryMapping   
     public Route getRoute(@Argument("id") String id) {
-        Route route = this.firestoreTemplate.findById(id, Route.class).block();
+        Route route = this.firestoreTemplate.findById(Mono.just(id), Route.class).block();
         return route;
     }
 
