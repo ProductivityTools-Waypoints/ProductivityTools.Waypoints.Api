@@ -6,6 +6,7 @@ type Mutation{
 type Query {
     helloQuery: String
     getRoutes:[Route]
+    getRoute(id: ID!): Route
 }
 
 type Route{

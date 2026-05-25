@@ -35,4 +35,10 @@ public class RouteController {
         return routes;
     }
 
+    @QueryMapping   
+    public Route getRoute(@Argument("id") String id) {
+        Route route = this.firestoreTemplate.findById(id, Route.class).block();
+        return route;
+    }
+
 }
