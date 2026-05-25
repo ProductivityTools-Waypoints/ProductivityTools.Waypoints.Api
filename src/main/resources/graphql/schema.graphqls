@@ -1,6 +1,6 @@
 type Mutation{
     Hello(name: String!):String
-    AddRoute(name: String!):String
+    AddRoute(route: RouteInput!):Route
 }
 
 type Query {
@@ -9,7 +9,22 @@ type Query {
     getRoute(id: ID!): Route
 }
 
+input RouteInput{
+    name: String!
+    points: [pointInput]
+
+}
+input pointInput{
+    name: String!
+}
+
 type Route{
     id: ID!,
+    name: String,
+    points: [Point]
+}
+
+type Point {
     name: String
 }
+

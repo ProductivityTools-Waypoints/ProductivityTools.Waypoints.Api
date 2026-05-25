@@ -1,19 +1,13 @@
 package top.productivitytools.waypoints.api.models;
 
 import com.google.cloud.firestore.annotation.DocumentId;
-import com.google.cloud.spring.data.firestore.Document;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Document(collectionName = "routes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Route {
-    @DocumentId
-    private String id;
+public class Point {
     private String name;
-    private Point[] points;
-
 }

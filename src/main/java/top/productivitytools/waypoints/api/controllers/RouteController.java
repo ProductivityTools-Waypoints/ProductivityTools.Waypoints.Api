@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import lombok.RequiredArgsConstructor;
 
 import com.google.cloud.spring.data.firestore.FirestoreTemplate;
+import top.productivitytools.waypoints.api.models.RouteInput;
 import top.productivitytools.waypoints.api.models.Route;
+import top.productivitytools.waypoints.api.models.Point;
 
 import java.util.List;
 
@@ -21,12 +23,21 @@ public class RouteController {
     private final FirestoreTemplate firestoreTemplate;
 
     @MutationMapping
-    public String AddRoute(@Argument("name") String name) {
+    public Route AddRoute(@Argument("route") RouteInput routeInput) {
+        RouteInput saved = this.firestoreTemplate.save(routeInput).block();
         Route route = new Route();
-        route.setId(name);
-        route.setName(name);
-        this.firestoreTemplate.save(route).block();
-        return "Route " + name + " saved to Firestore";
+        if (saved != null) {
+            route.setId(saved.getId());
+            route.setName(saved.getName());
+            if (saved.getPoints() != null) {
+                Point[] points = new Point[saved.getPoints().length];
+                for (int i = 0; i < saved.getPoints().length; i++) {
+                    points[i] = new Point(saved.getPoints()[i].getName());
+                }
+                route.setPoints(points);
+            }
+        }
+        return route;
     }
 
     @QueryMapping   

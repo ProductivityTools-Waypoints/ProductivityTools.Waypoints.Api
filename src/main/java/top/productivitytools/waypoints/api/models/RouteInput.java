@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Route {
+public class RouteInput {
     @DocumentId
     private String id;
     private String name;
-    private Point[] points;
+    private PointInput[] points;
 
 }
