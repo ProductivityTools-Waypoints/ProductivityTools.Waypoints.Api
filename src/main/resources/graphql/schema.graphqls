@@ -16,6 +16,8 @@ input RouteInput{
 }
 input pointInput{
     name: String!
+    odometer: Int
+    distance: Int
 }
 
 type Route{
