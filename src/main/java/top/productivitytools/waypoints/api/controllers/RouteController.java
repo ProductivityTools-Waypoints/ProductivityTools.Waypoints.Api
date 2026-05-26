@@ -29,10 +29,11 @@ public class RouteController {
         if (saved != null) {
             route.setId(saved.getId());
             route.setName(saved.getName());
+            route.setDirection(saved.getDirection());
             if (saved.getPoints() != null) {
-                Point[] points = new Point[saved.getPoints().length];
-                for (int i = 0; i < saved.getPoints().length; i++) {
-                    points[i] = new Point(saved.getPoints()[i].getName());
+                List<Point> points = new ArrayList<>();
+                for (top.productivitytools.waypoints.api.models.PointInput pi : saved.getPoints()) {
+                    points.add(new Point(pi.getName(), pi.getOdometer(), pi.getDistance()));
                 }
                 route.setPoints(points);
             }

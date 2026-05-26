@@ -10,4 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PointInput {
     private String name;
+    private Integer odometer;
+    private Integer distance;
 }
