@@ -41,6 +41,12 @@ public class RouteController {
         return route;
     }
 
+    @MutationMapping
+    public String DeleteRoute(@Argument("routeid") String routeId) {
+        this.firestoreTemplate.deleteById(Mono.just(routeId), Route.class).block();
+        return "deleted";
+    }
+
     @QueryMapping   
     public List<Route> getRoutes() {
         //return new ArrayList<Route>() {{ add(new Route("1", "Route 1")); add(new Route("2", "Route 2")); }};
@@ -53,5 +59,7 @@ public class RouteController {
         Route route = this.firestoreTemplate.findById(Mono.just(id), Route.class).block();
         return route;
     }
+
+
 
 }
