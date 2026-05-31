@@ -42,8 +42,8 @@ public class RouteController {
     }
 
     @MutationMapping
-    public String DeleteRoute(@Argument("routeid") String routeId) {
-        this.firestoreTemplate.deleteById(Mono.just(routeId), Route.class).block();
+    public String DeleteRoute(@Argument("id") String id) {
+        this.firestoreTemplate.deleteById(Mono.just(id), Route.class).block();
         return "deleted";
     }
 
