@@ -35,6 +35,7 @@ export GOOGLE_APPLICATION_CREDENTIALS="/usr/local/google/home/pwujczyk/github/Ho
 ```
 eval `ssh-agent -s`
 ssh-add ~/.ssh/id_rsa
+$env:GOOGLE_APPLICATION_CREDENTIALS="c:\bin\github\Home.Configuration\PTProjectsWeb.Firebase.ServiceAccount.json"
 ```
 
 
