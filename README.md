@@ -32,6 +32,11 @@ export GOOGLE_APPLICATION_CREDENTIALS="/usr/local/google/home/pwujczyk/github/Ho
 
 ```
 
+```
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_rsa
+```
+
 
 ## Graphql
 Add depdencies in build.gradle
