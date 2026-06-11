@@ -1,7 +1,8 @@
 type Mutation{
     Hello(name: String!):String
-    AddRoute(route: RouteInput!):Route
+    SaveRoute(route: RouteInput!):Route
     DeleteRoute(id: String!):String
+    RemoveOdometers(id:String):[Point]
 }
 
 type Query {
