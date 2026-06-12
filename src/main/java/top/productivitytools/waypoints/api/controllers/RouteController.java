@@ -61,19 +61,19 @@ public class RouteController {
     }
 
     @MutationMapping
-    public Point[] RemoveOdometerPoints(@Argument("routeId") String routeId) {
-        Route route = this.firestoreTemplate.findById(Mono.just(routeId), Route.class).block();
+    public Route RemoveOdometers(@Argument("id") String id) {
+        Route route = this.firestoreTemplate.findById(Mono.just(id), Route.class).block();
         if (route != null && route.getPoints() != null) {
             List<Point> updatedPoints = new ArrayList<>();
             for (Point point : route.getPoints()) {
                     point.setOdometer(null);
                     updatedPoints.add(point);
                 }
-            }
+            
             route.setPoints(updatedPoints);
             this.firestoreTemplate.save(route).block();
         }
-        return route != null ? route.getPoints().toArray(new Point[0]) : new Point[0];
+        return route;
     }
 
     @MutationMapping
