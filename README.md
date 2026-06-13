@@ -16,6 +16,15 @@ $env:JAVA_HOME="c:\Program Files\Java\jdk-24\"
 .\gradlew.bat bootrun
 ```
 
+### Ubuntu
+
+```
+export GOOGLE_APPLICATION_CREDENTIALS="/usr/local/google/home/pwujczyk/github/Home.Configuration/PTProjectsWeb.Firebase.ServiceAccount.json"
+chmod +x ./gradlew
+./gradlew bootRun
+```
+
+
 ## Graphql
 Add depdencies in build.gradle
 ```
