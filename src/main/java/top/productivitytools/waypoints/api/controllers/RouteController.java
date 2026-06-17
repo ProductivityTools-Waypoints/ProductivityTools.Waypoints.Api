@@ -22,8 +22,27 @@ import reactor.core.publisher.Mono;
 public class RouteController {
     private final FirestoreTemplate firestoreTemplate;
 
+    // @MutationMapping
+    // public Route AddRoute(@Argument("route") RouteInput routeInput) {
+    //     RouteInput saved = this.firestoreTemplate.save(routeInput).block();
+    //     Route route = new Route();
+    //     if (saved != null) {
+    //         route.setId(saved.getId());
+    //         route.setName(saved.getName());
+    //         route.setDirection(saved.getDirection());
+    //         if (saved.getPoints() != null) {
+    //             List<Point> points = new ArrayList<>();
+    //             for (top.productivitytools.waypoints.api.models.PointInput pi : saved.getPoints()) {
+    //                 points.add(new Point(pi.getName(), pi.getOdometer(), pi.getDistance()));
+    //             }
+    //             route.setPoints(points);
+    //         }
+    //     }
+    //     return route;
+    // }
+
     @MutationMapping
-    public Route AddRoute(@Argument("route") RouteInput routeInput) {
+    public Route SaveRoute(@Argument("route") RouteInput routeInput) {
         RouteInput saved = this.firestoreTemplate.save(routeInput).block();
         Route route = new Route();
         if (saved != null) {
@@ -37,6 +56,22 @@ public class RouteController {
                 }
                 route.setPoints(points);
             }
+        }
+        return route;
+    }
+
+    @MutationMapping
+    public Route RemoveOdometers(@Argument("id") String id) {
+        Route route = this.firestoreTemplate.findById(Mono.just(id), Route.class).block();
+        if (route != null && route.getPoints() != null) {
+            List<Point> updatedPoints = new ArrayList<>();
+            for (Point point : route.getPoints()) {
+                    point.setOdometer(null);
+                    updatedPoints.add(point);
+                }
+            
+            route.setPoints(updatedPoints);
+            this.firestoreTemplate.save(route).block();
         }
         return route;
     }
@@ -59,6 +94,7 @@ public class RouteController {
         Route route = this.firestoreTemplate.findById(Mono.just(id), Route.class).block();
         return route;
     }
+
 
 
 
