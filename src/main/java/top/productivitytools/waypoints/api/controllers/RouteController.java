@@ -52,7 +52,7 @@ public class RouteController {
             if (saved.getPoints() != null) {
                 List<Point> points = new ArrayList<>();
                 for (top.productivitytools.waypoints.api.models.PointInput pi : saved.getPoints()) {
-                    points.add(new Point(pi.getName(), pi.getOdometer(), pi.getDistance()));
+                    points.add(new Point(pi.getName(), pi.getOdometer(), pi.getDistance(),pi.getComment()));
                 }
                 route.setPoints(points);
             }

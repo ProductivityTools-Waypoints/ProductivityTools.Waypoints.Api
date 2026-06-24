@@ -12,4 +12,5 @@ public class Point {
     private String name;
     private Integer odometer;
     private Integer distance;
+    private String comment;
 }
