@@ -14,11 +14,13 @@ import top.productivitytools.waypoints.api.models.Point;
 import java.util.List;
 
 import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.security.access.prepost.PreAuthorize;
 import java.util.ArrayList;
 import reactor.core.publisher.Mono;
 
 @Controller
 @RequiredArgsConstructor
+@PreAuthorize("hasRole('ALLOWED_USER')")
 public class RouteController {
     private final FirestoreTemplate firestoreTemplate;
 
