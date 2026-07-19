@@ -89,7 +89,8 @@ public class RouteController {
     public Route DuplicateRoute(@Argument("id") String id) {
         Route route = this.firestoreTemplate.findById(Mono.just(id), Route.class).block();
         if (route != null) {
-            route.setId(UUID.randomUUID().toString());
+            String name=route.getId()+UUID.randomUUID().toString();
+            route.setId(name);
             return this.firestoreTemplate.save(route).block();
         }
         return null;
