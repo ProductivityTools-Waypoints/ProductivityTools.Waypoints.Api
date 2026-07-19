@@ -16,6 +16,7 @@ import java.util.List;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.security.access.prepost.PreAuthorize;
 import java.util.ArrayList;
+import java.util.UUID;
 import reactor.core.publisher.Mono;
 
 @Controller
@@ -82,6 +83,16 @@ public class RouteController {
     public String DeleteRoute(@Argument("id") String id) {
         this.firestoreTemplate.deleteById(Mono.just(id), Route.class).block();
         return "deleted";
+    }
+
+    @MutationMapping
+    public Route DuplicateRoute(@Argument("id") String id) {
+        Route route = this.firestoreTemplate.findById(Mono.just(id), Route.class).block();
+        if (route != null) {
+            route.setId(UUID.randomUUID().toString());
+            return this.firestoreTemplate.save(route).block();
+        }
+        return null;
     }
 
     @QueryMapping   

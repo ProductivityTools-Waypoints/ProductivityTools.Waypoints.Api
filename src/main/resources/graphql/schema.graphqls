@@ -3,6 +3,7 @@ type Mutation{
     SaveRoute(route: RouteInput!):Route
     DeleteRoute(id: String!):String
     RemoveOdometers(id:String!):Route
+    DuplicateRoute(id: String!):Route
 }
 
 type Query {
