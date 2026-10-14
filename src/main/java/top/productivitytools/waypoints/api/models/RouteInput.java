@@ -14,8 +14,9 @@ import java.util.List;
 public class RouteInput {
     @DocumentId
     private String id;
-    private String name;
+    private String source;
+    private String route;
+    private String destination;
     private List<PointInput> points;
-    private String direction;
 
 }

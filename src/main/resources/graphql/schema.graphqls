@@ -13,9 +13,10 @@ type Query {
 }
 
 input RouteInput{
-    id: ID!
-    name: String!
-    direction: String!
+    id: ID
+    source: String!
+    route: String!
+    destination: String!
     points: [pointInput]!
 
 }
@@ -28,9 +29,10 @@ input pointInput{
 
 type Route{
     id: ID!,
-    name: String,
-    points: [Point],
-    direction: String
+    source: String,
+    route: String,
+    destination: String,
+    points: [Point]
 }
 
 type Point {

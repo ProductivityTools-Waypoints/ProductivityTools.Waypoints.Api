@@ -16,8 +16,9 @@ import lombok.NoArgsConstructor;
 public class Route {
     @DocumentId
     private String id;
-    private String name;
+    private String source;
+    private String route;
+    private String destination;
     private List<Point> points;
-    private String direction;
 
 }
