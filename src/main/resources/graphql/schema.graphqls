@@ -25,6 +25,7 @@ input pointInput{
     odometer: Int
     distance: Int
     comment: String
+    types: [String]
 }
 
 type Route{
@@ -40,5 +41,6 @@ type Point {
     odometer: Int
     distance: Int
     comment: String
+    types: [String]
 }
 
